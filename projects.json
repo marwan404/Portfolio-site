@@ -10,6 +10,11 @@
     "description": "Searches a large database of past paper questions by difficulty, topic and number of marks."
   },
   {
+    "title": "lossless text file compressor",
+    "tag": "file compression tool",
+    "description": "replaces repeatec words with their index."
+  },
+  {
     "title": "hangman game",
     "tag": "a game where you guess letters",
     "description": "hangman made in both c++ and python, you try to guess letters and every wrong guess a body part gets added until a stickman is formed and you loose."
