@@ -65,6 +65,7 @@ class Portfolio {
 // Initialize Portfolio class on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
     new Portfolio();
+    updateDiscordCard();
 });
 
 // Smooth scroll for anchor links
