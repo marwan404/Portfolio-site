@@ -86,57 +86,63 @@ async function updateDiscordCard() {
     const card = document.querySelector('.status-card');
     card.classList.add('loading'); // Show loading effect
 
-    // Your Discord user ID
-    const userId = "891250407312072726";
-    // Fetch live Discord data from Lanyard API
-    const res = await fetch(`https://api.lanyard.rest/v1/users/${userId}`);
-    const data = await res.json();
-    if (!data.success) {
+    try {
+        // Your Discord user ID
+        const userId = "891250407312072726";
+        // Fetch live Discord data from Lanyard API
+        const res = await fetch(`https://api.lanyard.rest/v1/users/${userId}`);
+        if (!res.ok) {
+            throw new Error("Network response was not ok");
+        }
+        const data = await res.json();
+        if (!data.success) {
+            throw new Error("API returned unsuccessful response");
+        }
+
+        // Extract user info and status
+        const user = data.data.discord_user;
+        const status = data.data.discord_status;
+        // Use Discord avatar if available, fallback to local image
+        const avatarUrl = user.avatar
+            ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=128`
+            : "./pictures/pfp.jpg";
+        // Display name (global_name) is the new Discord display name
+        const displayName = user.global_name;
+        // Custom status (if set)
+        const customStatus = data.data.activities.find(a => a.type === 4)?.state || "";
+
+        // Update card with live data
+        document.querySelector('.status-info h3').textContent = displayName || "";
+        document.querySelector('.status-avatar').src = avatarUrl;
+        document.querySelector('.avatar').src = avatarUrl;
+        document.querySelector('.status-info p').textContent =
+            customStatus || (status.charAt(0).toUpperCase() + status.slice(1));
+
+        // Set Discord icon color based on status
+        const icon = document.querySelector('.discord-icon');
+        let color = "#5865f2"; // Default (offline)
+        if (status === "online") color = "#23a55a";
+        else if (status === "idle") color = "#faa61a";
+        else if (status === "dnd") color = "#ed4245";
+        icon.style.color = color;
+
+        // Place the status dot on the avatar (bottom right, slightly hanging)
+        let dot = document.querySelector('.discord-status-dot');
+        if (!dot) {
+            dot = document.createElement('span');
+            dot.className = 'discord-status-dot';
+            // Append dot inside the avatar wrapper
+            document.querySelector('.status-avatar-wrapper').appendChild(dot);
+        }
+        dot.style.background = color;
+
+    } catch (error) {
+        // Optionally, display a user-friendly error message
+        console.error("Discord card fetch error:", error);
+        document.querySelector('.status-info h3').textContent = "Unavailable";
+        document.querySelector('.status-info p').textContent = "Could not load Discord status.";
+    } finally {
+        // Always remove loading spinner
         card.classList.remove('loading');
-        return;
     }
-
-    // Extract user info and status
-    const user = data.data.discord_user;
-    const status = data.data.discord_status;
-    // Use Discord avatar if available, fallback to local image
-    const avatarUrl = user.avatar
-        ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=128`
-        : "./pictures/pfp.jpg";
-    // Display name (global_name) is the new Discord display name
-    const displayName = user.global_name;
-    // Custom status (if set)
-    const customStatus = data.data.activities.find(a => a.type === 4)?.state || "";
-
-    // Update card with live data
-    document.querySelector('.status-info h3').textContent = displayName || "";
-    document.querySelector('.status-avatar').src = avatarUrl;
-    document.querySelector('.avatar').src = avatarUrl;
-    document.querySelector('.status-info p').textContent =
-        customStatus || (status.charAt(0).toUpperCase() + status.slice(1));
-
-    // Set Discord icon color based on status
-    const icon = document.querySelector('.discord-icon');
-    let color = "#5865f2"; // Default (offline)
-    if (status === "online") color = "#23a55a";
-    else if (status === "idle") color = "#faa61a";
-    else if (status === "dnd") color = "#ed4245";
-    icon.style.color = color;
-
-    // Place the status dot on the avatar (bottom right, slightly hanging)
-    let dot = document.querySelector('.discord-status-dot');
-    if (!dot) {
-        dot = document.createElement('span');
-        dot.className = 'discord-status-dot';
-        // Append dot inside the avatar wrapper
-        document.querySelector('.status-avatar-wrapper').appendChild(dot);
-    }
-    dot.style.background = color;
-
-    card.classList.remove('loading'); // Hide loading effect
 }
-
-// Run Discord card update after DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
-    updateDiscordCard();
-});
