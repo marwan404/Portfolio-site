@@ -25,8 +25,14 @@
     "tag": "Parody Web App",
     "description": "Fake productivity site. Totally real. Not distracting at all.",
     "link": "https://marwan404.github.io/Distraction_HUB/",
-    "repo": "https://github.com/marwan404/Distraction_HUB"
+    "repo": "https://github.com/marwan404/StudyHub"
   },
+  {
+    "title": "Study Hub",
+    "tag": "actually useful website",
+    "description": "pin important websites, dark and light mode toggle, pomodoro study timer.",
+    "link": "https://marwan404.github.io/StudyHub/",
+    "repo": "https://github.com/marwan404/Distraction_HUB"
   {
     "title": "More Projects",
     "tag": "Coming Soon",
