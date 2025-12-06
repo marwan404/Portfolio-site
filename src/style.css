@@ -364,13 +364,34 @@ body {
 /* =========================
    Skills & Projects
    ========================= */
+.scroller-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.scroller {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px 5px;
+    max-width: 100%;
+}
+
+.scroller::-webkit-scrollbar {
+    display: none;
+}
+
 .scroller img {
     height: 55px;
     object-fit: contain;
-    filter: grayscale(100%);
-    opacity: 0.8;
-    transition: 0.25s ease;
     flex-shrink: 0;
+    filter: grayscale(100%);
+    opacity: 0.75;
+    transition: 0.25s ease;
+    cursor: pointer;
 }
 
 .scroller img:hover {
@@ -378,6 +399,21 @@ body {
     opacity: 1;
     transform: scale(1.08);
 }
+
+.scroll-btn {
+    background: #0f172a;
+    color: white;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.scroll-btn:hover {
+    background: #1e293b;
+}
+
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -613,4 +649,5 @@ body {
     box-shadow: 0 0 6px rgba(0,0,0,0.3);
     transition: background 0.3s;
 }
+
 
