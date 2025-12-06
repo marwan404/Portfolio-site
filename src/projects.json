@@ -14,7 +14,7 @@
   {
     "title": "passMan",
     "tag": "cli password manager",
-    "description": "a password manager that uses 0 knowledge security using argon2 and aes-gcm.",
+    "description": "a password manager that uses 0 knowledge security using argon2 and aes-gcm featuring a custom commands.",
     "repo": "https://github.com/marwan404/passMan"
   },
   {
