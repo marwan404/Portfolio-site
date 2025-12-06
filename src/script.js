@@ -82,6 +82,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+function scrollLogos(direction) {
+    document.getElementById("logoScroller")
+        .scrollBy({ left: direction * 200, behavior: "smooth" });
+}
+
 // Fetch and update Discord card with live data
 async function updateDiscordCard() {
     const card = document.querySelector('.status-card');
@@ -147,3 +152,4 @@ async function updateDiscordCard() {
         card.classList.remove('loading');
     }
 }
+
