@@ -367,6 +367,7 @@ body {
 .scroller-wrapper {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 12px;
     margin-top: 25px;
 }
@@ -649,5 +650,6 @@ body {
     box-shadow: 0 0 6px rgba(0,0,0,0.3);
     transition: background 0.3s;
 }
+
 
 
