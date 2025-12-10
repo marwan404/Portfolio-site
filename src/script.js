@@ -66,6 +66,17 @@ class Portfolio {
 document.addEventListener('DOMContentLoaded', () => {
     new Portfolio();
     updateDiscordCard();
+    const buttons = document.querySelectorAll(".stats-buttons-container .skill-tag");
+    const panels = document.querySelectorAll(".stats-panel");
+    buttons.forEach(btn => {
+        btn.addEventListener("click", function() {
+            buttons.forEach(b => b.classList.remove("active"));
+            this.classList.add("active");
+            panels.forEach(panel => panel.style.display = "none");
+            const selected = document.getElementById(this.dataset.stats + "-panel");
+            selected.style.display = "block";
+        });
+    });
 });
 
 // Smooth scroll for anchor links
@@ -83,8 +94,22 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 function scrollLogos(direction) {
-    document.getElementById("logoScroller")
-        .scrollBy({ left: direction * 200, behavior: "smooth" });
+    const scroller = document.getElementById("logoScroller");
+    const logos = scroller.querySelectorAll('img');
+    const logoWidth = logos[0].offsetWidth + 30; // 30px is the gap in .scroller
+    const scrollAmount = logoWidth * 1; // Scroll by one logo at a time
+
+    // Determine if we’re at the end/start
+    if (direction > 0 && Math.ceil(scroller.scrollLeft + scroller.offsetWidth) >= scroller.scrollWidth) {
+        // At end, go to start
+        scroller.scrollTo({ left: 0, behavior: "smooth" });
+    } else if (direction < 0 && scroller.scrollLeft === 0) {
+        // At start, go to end
+        scroller.scrollTo({ left: scroller.scrollWidth, behavior: "smooth" });
+    } else {
+        // Scroll normally
+        scroller.scrollBy({ left: direction * scrollAmount, behavior: "smooth" });
+    }
 }
 
 // Fetch and update Discord card with live data

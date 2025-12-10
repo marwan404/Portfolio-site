@@ -370,6 +370,7 @@ body {
     justify-content: center;
     gap: 12px;
     margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 .scroller {
@@ -379,6 +380,8 @@ body {
     scroll-behavior: smooth;
     padding: 10px 5px;
     max-width: 100%;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 
 .scroller::-webkit-scrollbar {
@@ -392,7 +395,8 @@ body {
     filter: grayscale(100%);
     opacity: 0.75;
     transition: 0.25s ease;
-    cursor: pointer;
+    cursor: prointer;
+    object-fit: cover;
 }
 
 .scroller img:hover {
@@ -413,6 +417,29 @@ body {
 
 .scroll-btn:hover {
     background: #1e293b;
+}
+
+
+.stats-panel {
+    margin-top: 10px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.stats-buttons-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
 }
 
 .skills-grid {
@@ -442,14 +469,24 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    color: var(--text-primary);
 }
 .skill-tag:hover {
     background: rgba(0, 255, 136, 0.1);
     border-color: var(--accent);
     transform: translateY(-2px);
 }
+.skill-tag.active {
+    background: rgba(0, 255, 136, 0.15);
+    border-color: var(--accent);
+    color: var(--accent);
+}
 .skill-tag i {
     color: var(--accent);
+}
+.stats-buttons-container .skill-tag {
+    cursor: pointer;
+    border: 1px solid var(--border);
 }
 .projects-grid {
     display: grid;
