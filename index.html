@@ -162,27 +162,24 @@
         </section>
 
         <section class="section fade-in">
-            <h2 class="section-title">Stats</h2>
-            <p class="section-subtitle">Certificates and Grades</p>
-            <div class="scroller-wrapper">
-                <button class="scroll-btn" onclick="scrollLogos(-1)">◀</button>
-                <div class="scroller" id="logoScroller">
-                    <img src="assets/logos/Harvard.svg" alt="Harvard">
-                    <img src="assets/logos/oxford.svg" alt="Oxford">
-                    <img src="assets/logos/Pearson.svg" alt="Edexcel">
+        <h2 class="section-title">Stats</h2>
+        <p class="section-subtitle">Certificates and Grades</p>
+        <div class="card">
+            <div class="card-content">
+                <div id="stats-buttons" style="margin-bottom: 20px;">
+                    <button class="stats-btn active" data-stats="igcses">IGCSEs</button>
+                    <button class="stats-btn" data-stats="alevels">IA-Levels</button>
+                    <button class="stats-btn" data-stats="courses">Courses</button>
                 </div>
-                <button class="scroll-btn" onclick="scrollLogos(1)">▶</button>
-            </div>
-            <div class="skills-grid">
-                <div class="card">
-                     <div class="card-content">
+                <div id="stats-contents">
+                    <div class="stats-panel" id="igcses-panel">
                         <div class="skill-category">
                             <h3>IGCSEs</h3>
                             <div class="skill-tags">
                                 <span class="skill-tag"><i class="fas fa-check-circle"></i>Mathematics - Top Grade (9)</span>
                                 <span class="skill-tag"><i class="fas fa-check-circle"></i>Physics - Top Grade (9)</span>
                                 <span class="skill-tag"><i class="fas fa-check-circle"></i>Chemistry - Top Grade (9)</span>
-                                <span class="skill-tag"><i class="fas fa-check-circle"></i>Biology - Top Grade (9))</span>
+                                <span class="skill-tag"><i class="fas fa-check-circle"></i>Biology - Top Grade (9)</span>
                                 <span class="skill-tag"><i class="fas fa-check-circle"></i>English - Top Grade (9)</span>
                                 <span class="skill-tag"><i class="fas fa-check-circle"></i>Computer Science - Top Grade (9)</span>
                                 <span class="skill-tag"><i class="fas fa-check-circle"></i>Combined Science - Top Grade (A*)</span>
@@ -190,9 +187,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="card-content">
+                    <div class="stats-panel" id="alevels-panel" style="display:none;">
                         <div class="skill-category">
                             <h3>IA-Levels</h3>
                             <div class="skill-tags">
@@ -200,9 +195,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                 <div class="card">
-                    <div class="card-content">
+                    <div class="stats-panel" id="courses-panel" style="display:none;">
                         <div class="skill-category">
                             <h3>Courses</h3>
                             <div class="skill-tags">
@@ -213,7 +206,8 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+</section>
 
         <section class="section fade-in">
             <h2 class="section-title">Get In Touch</h2>
@@ -232,6 +226,7 @@
     <script src="src/script.js"></script>
 </body>
 </html>
+
 
 
 
