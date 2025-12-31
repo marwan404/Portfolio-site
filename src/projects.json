@@ -1,11 +1,5 @@
 [
   {
-    "title": "Physics Calculator",
-    "tag": "advanced calculator",
-    "description": "A tool where you pick a certain formula and plug in some numbers and it calculates the result.",
-    "repo": "https://github.com/marwan404/Cpp_Physics_Project"
-  },
-  {
     "title": "lossless text file compressor",
     "tag": "file compression tool",
     "description": "replaces repeated words with their index.",
@@ -27,22 +21,10 @@
     ]
   },
   {
-    "title": "Distraction Hub",
-    "tag": "Parody Web App",
-    "description": "Fake productivity site. Totally real. Not distracting at all.",
-    "link": "https://marwan404.github.io/Distraction_HUB/",
-    "repo": "https://github.com/marwan404/StudyHub"
-  },
-  {
     "title": "Study Hub",
     "tag": "actually useful website",
     "description": "pin important websites, dark and light mode toggle, pomodoro study timer.",
     "link": "https://study.marwanahmed.dev",
     "repo": "https://github.com/marwan404/Distraction_HUB"
   },
-  {
-    "title": "More Projects",
-    "tag": "Coming Soon",
-    "description": "I have more projects in development, currently on hold due to other commitments."
-  }
 ]
