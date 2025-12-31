@@ -1,8 +1,10 @@
-fetch('src/projects.json')
+fetch("src/projects.json", { cache: "no-store" })
   .then(res => res.json())
   .then(projects => {
     const container = document.getElementById("projects-container");
 
+    const container = document.getElementById("projects-container");
+    container.innerHTML = ""; // delete all old cards
     projects.forEach(p => {
       const card = document.createElement("div");
       card.className = "project-card";
