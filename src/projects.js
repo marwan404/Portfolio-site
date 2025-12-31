@@ -37,7 +37,7 @@ fetch('src/projects.json')
         </div>
       `;
 
-      
+      container.appendChild(card);
     });
   })
   .catch(err => {
