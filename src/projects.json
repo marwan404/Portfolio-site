@@ -1,5 +1,14 @@
 [
   {
+    "title": "2d orbital mechanics engine",
+    "tag": "in progress",
+    "description": "in progress",
+    "repos": [
+      { "name": "Python", "url": "https://github.com/marwan404/pygame_OM" },
+      { "name": "C++", "url": "https://github.com/marwan404/raylib_OM" }
+    ]
+  },
+  {
     "title": "lossless text file compressor",
     "tag": "file compression tool",
     "description": "replaces repeated words with their index.",
