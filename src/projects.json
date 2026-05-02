@@ -4,7 +4,7 @@
     "tag": "in progress",
     "description": "python version is complete",
     "repos": [
-      { "name": "Python", "url": "https://github.com/marwan404/pygame_OM" },
+      { "name": "Python", "url": "https://github.com/marwan404/pygame-OM" },
       { "name": "C++", "url": "https://github.com/marwan404/raylib_OM" }
     ]
   },
